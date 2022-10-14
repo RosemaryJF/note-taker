@@ -3,8 +3,8 @@ const express = require('express');
 // Imports the modular routers for /notes
 const noteRouter = require('./notes');
 
-const app = express();
+const api = express();
 
-app.use('/notes', noteRouter);
+api.use('/notes', noteRouter);
 
-module.exports = app;
+module.exports = api;

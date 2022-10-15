@@ -1,4 +1,5 @@
 const notes = require('express').Router();
+const fs = require('fs');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
@@ -41,30 +42,21 @@ notes.post('/', (req, res) => {
 
 notes.delete('/', (req, res) => {
   // Log that a POST request was received
-  console.info(`${req.method} request received to delete note`);
-    
-  // request to delete note by id.
+  console.info(`${req.method} request received to delete note`); 
+
   for (let i = 0; i < notes.length; i++) {
 
-    if (notes[i].id == req.params.id) {
-      // Splice takes i position, and then deletes the 1 note.
-      notes.splice(i, 1);
-      break;
-      }
+    if (notes[i] == req.params) {
+        // Splice takes i position, and then deletes the 1 note.
+        notes.splice(i, 1);
+        break;
+    }
   };
 
-   // Write the db.json file again.
-  fs.writeFileSync(jsonFilePath, JSON.stringify(notes), function (err) {
-
-    if (err) {
-      return console.error(err);
-    } else {
-      console.log("The selected note was deleted!");
-    }
+  fs.writeFileSync('./db/notes.json', JSON.stringify(notes), err => {
+    if (err) throw err;
+    return true;
   });
-
-  res.json(notes);
-  
 });
 
 module.exports = notes;

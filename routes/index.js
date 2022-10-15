@@ -7,4 +7,4 @@ const api = express();
 
 api.use('/notes', noteRouter);
 
-module.exports = api;
+module.exports = api

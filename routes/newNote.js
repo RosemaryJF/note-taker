@@ -1,16 +1,16 @@
-const notes = require('express').Router();
+const newNote = require('express').Router();
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 // GET Route for retrieving all notes
-notes.get('/', (req, res) => {
-  console.info(`${req.method} request received for new note`);
+newNote.get('/', (req, res) => {
+  console.info(`${req.method} request received to retrieve notes`);
 
   readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting new note
-notes.post('/', (req, res) => {
+newNote.post('/', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to submit new note`);
 
@@ -39,7 +39,7 @@ notes.post('/', (req, res) => {
   }
 });
 
-module.exports = notes;
+module.exports = newNote;
 
 
 

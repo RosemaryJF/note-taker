@@ -43,26 +43,28 @@ notes.delete('/', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to delete note`);
     
-  let jsonFilePath = path.join(__dirname, "./db/notes.json");
-    // request to delete note by id.
-    for (let i = 0; i < notes.length; i++) {
+  // request to delete note by id.
+  for (let i = 0; i < notes.length; i++) {
 
-        if (notes[i].id == req.params.id) {
-            // Splice takes i position, and then deletes the 1 note.
-            notes.splice(i, 1);
-            break;
-        }
+    if (notes[i].id == req.params.id) {
+      // Splice takes i position, and then deletes the 1 note.
+      notes.splice(i, 1);
+      break;
+      }
+  };
+
+   // Write the db.json file again.
+  fs.writeFileSync(jsonFilePath, JSON.stringify(notes), function (err) {
+
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("The selected note was deleted!");
     }
-    // Write the db.json file again.
-    fs.writeFileSync(jsonFilePath, JSON.stringify(notes), function (err) {
+  });
 
-        if (err) {
-            return console.error(err);
-        } else {
-            console.log("The selected note was deleted!");
-        }
-    });
-    res.json(notes);
+  res.json(notes);
+  
 });
 
 module.exports = notes;

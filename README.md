@@ -38,7 +38,7 @@ Alternatively, you can visit the Heroku deployed link below to bookmark and star
 ---
 
 ## Usage
-![Screenshot of Note Taker homepage](./images/homepage.jpg)
+![Screenshot of Note Taker homepage](./assets/images/homepage.jpg)
 
 The image is what the Note Taker homepage looks like. The user simple clicks on the `Get Started` button to progress to the note taking screen. Once they do this they will be met with page similar to the image below.
 
@@ -46,7 +46,7 @@ To add a note they simply click the `+` icon, and enter the note title in the `T
 
 Once the user starts typing a new note a `save` icon appears next to the plus. This is pressed once the note is finished and will render the note in the column on the LHS of their screen. To view the notes again the user simply needs to click on the one they want to review. If needed the user can click the `bin` icon to delete a note.
 
-![Screenshot of Note Taker note page](./images/example.jpg)
+![Screenshot of Note Taker note page](./assets/images/example.jpg)
 
 The notes entered are saved in a JSON file and will persist for the user if they close the application and revisit later or on a different browser. 
 

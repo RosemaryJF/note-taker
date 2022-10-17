@@ -34,7 +34,7 @@ From here they then run `heroku create` in their terminal; this will deploy the 
 
 Alternatively, you can visit the Heroku deployed link below to bookmark and start using the Note Taker app:
 
-
+https://secure-gorge-88028.herokuapp.com/
 ---
 
 ## Usage
